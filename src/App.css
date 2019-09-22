@@ -1,0 +1,106 @@
+body{
+  background: #1D1D21;
+  color: #fff;
+}
+
+.chat{
+  margin: 100px auto;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+.messages-container{
+  border: 2px solid #ca1e1a;
+  border-radius: 5px;
+  padding: 10px 10px 0 10px;
+  box-sizing: border-box;
+}
+
+.message{
+  position: relative;
+  border: 2px solid #ca1e1a;
+  border-radius: 5px;
+  padding: 24px 10px 10px 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.message-date{
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  font-size: 12px;
+}
+
+.message-delete{
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  background: url('../images/icons/close-icon.svg');
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.message:hover .message-delete{
+  opacity: 1;
+}
+
+.message-form{
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.message-input{
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 140px;
+  border: 2px solid #ca1e1a;
+  background: #313139;
+  color: #fff;
+}
+
+.form-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47.5%;
+  height: 44px;
+  border-radius: 5px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.buttons-wrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.message-add{
+  background: #CC1D1D;
+}
+
+.message-add:hover{
+  background: #940F0F;
+}
+
+.message-del{
+  background: #E95C20;
+}
+
+.message-del:hover{
+  background: #A93300;
+}
+
+.no-messages{
+  margin-bottom: 10px;
+  text-align: center;
+}
