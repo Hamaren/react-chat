@@ -9,36 +9,34 @@ class App extends Component{
     this.state={
       messages: []
     }
+  }
 
-    this.messagesChange={
-      messageAdd: text =>{
-        if(text.length === 0){
-          alert('Enter something in message form');
-        } else{
-          let arrMessages = this.state.messages;
-          arrMessages.push({
-            messageText: text,
-            messageDate: this.getDate()
-          });
-          this.setState({
-            messages: arrMessages
-          })
-        }
-      },
-      messagesDelete: event =>{
-        event.preventDefault();
-        this.setState({
-          messages: []
+  messageAdd = text => {
+    if(text.length === 0){
+      alert('Enter something in message form');
+    } else{
+      this.setState({
+        messages: this.state.messages.concat({
+          messageText: text,
+          messageDate: this.getDate()
         })
-      },
-      messageDelete: index =>{
-        let arrMessages = this.state.messages
-        arrMessages.splice(index, 1)
-        this.setState({
-          messages: arrMessages
-        })
-      }
+      })
     }
+  }
+
+  messagesDelete = e => {
+    event.preventDefault();
+    this.setState({
+      messages: []
+    })
+  }
+
+  messageDelete = index => {
+    let arrMessages = this.state.messages
+    arrMessages.splice(index, 1)
+    this.setState({
+      messages: arrMessages
+    })
   }
 
   leadingZero(num){
@@ -63,8 +61,8 @@ class App extends Component{
   render(){
     return(
       <div className="chat">
-        <MessagesContainer messages={this.state.messages} messageDelete={this.messagesChange.messageDelete} />
-        <MessageForm messageAdd={this.messagesChange.messageAdd} messageDelete={this.messagesChange.messagesDelete} />
+        <MessagesContainer messages={this.state.messages} messageDelete={this.messageDelete} />
+        <MessageForm messageAdd={this.messageAdd} messageDelete={this.messagesDelete} />
       </div>
     )
   }
